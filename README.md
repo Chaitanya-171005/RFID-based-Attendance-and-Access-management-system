@@ -21,7 +21,7 @@ RFID-Attendance-and-Access-Management-System/
 - 2 × MFRC522 RFID Modules (SPI)
 - WS2812/NeoPixel Circular LED Ring
 - Passive Buzzer
-- 10k Potentiometer
+- DIP Switch - 4 way
 - 0.96" I2C OLED Display (SSD1306)
 - Jumper wires, breadboard
 
