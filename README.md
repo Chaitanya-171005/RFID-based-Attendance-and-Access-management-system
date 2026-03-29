@@ -60,9 +60,10 @@ RFID-Attendance-and-Access-Management-System/
 
 | Device     | Pin   | ESP32 Pin | Notes                |
 |------------|-------|----------|----------------------|
-| DIP Switch | PIN 1 | GPIO35   | Input (Pull-up)      |
+| DIP Switch | PIN 1 | GPIO32   | Input (Pull-up)      |
 |            | PIN 2 | GPIO34   | Input (Pull-up)      |
-|            | PIN 3 | GPIO25   | Input (Pull-up)      |
+|            | PIN 3 | GPIO35   | Input (Pull-up)      |
+|            | PIN 4 | GPIO25   | Input (Pull-up)      |
 |            | GND   | GND      | Ground               |
 
 ---
