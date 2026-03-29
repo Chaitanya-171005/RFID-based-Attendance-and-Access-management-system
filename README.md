@@ -27,38 +27,56 @@ RFID-Attendance-and-Access-Management-System/
 
 ---
 
-## 🔌 Wiring & Connections
+# 🔌 Wiring & Connections
 
-| Peripheral         | Module Pin      | ESP32 Pin (Example) | Notes                |
-|--------------------|-----------------|---------------------|----------------------|
-| MFRC522 #1         | SDA (SS)        | GPIO5               | SPI SS / CS (Reader 1)|
-|                    | SCK             | GPIO14              | SPI Clock (shared)   |
-|                    | MOSI            | GPIO13              | SPI MOSI (shared)    |
-|                    | MISO            | GPIO12              | SPI MISO (shared)    |         |
-|                    | GND             | GND                 | Ground               |
-|                    | 3.3V            | 3.3V                | Power                |
-| MFRC522 #2         | SDA (SS)        | GPIO4               | SPI SS / CS (Reader 2)|
-|                    | SCK             | GPIO14              | SPI Clock (shared)   |
-|                    | MOSI            | GPIO13              | SPI MOSI (shared)    |
-|                    | MISO            | GPIO12              | SPI MISO (shared)    |
-|                    | GND             | GND                 | Ground               |
-|                    | 3.3V            | 3.3V                | Power                |
-| NeoPixel Ring      | DIN             | GPIO27              | Data In              |
-|                    | VCC             | 3.3V                | Power                |
-|                    | GND             | GND                 | Ground               |
-| Buzzer             | +               | GPIO26              | Digital Output       |
-|                    | -               | GND                 | Ground               |
-| Potentiometer      | Center (OUT)    | GPIO34              | Analog Input         |
-|                    | Side 1          | 3.3V                | Power                |
-|                    | Side 2          | GND                 | Ground               |
-| OLED Display (I2C) | SDA             | GPIO21              | I2C Data             |
-|                    | SCL             | GPIO22              | I2C Clock            |
-|                    | VCC             | 3.3V                | Power                |
-|                    | GND             | GND                 | Ground               |
+## 📡 SPI Devices (Shared Bus)
 
+| Peripheral   | Pin      | ESP32 Pin | Notes                         |
+|-------------|----------|----------|-------------------------------|
+| MFRC522 #1  | SDA (SS) | GPIO5    | Chip Select (Reader 1)        |
+| MFRC522 #2  | SDA (SS) | GPIO4    | Chip Select (Reader 2)        |
+| Both Readers| SCK      | GPIO14   | Shared SPI Clock              |
+|             | MOSI     | GPIO13   | Shared MOSI                   |
+|             | MISO     | GPIO12   | Shared MISO                   |
+|             | 3.3V     | 3.3V     | Power                         |
+|             | GND      | GND      | Ground                        |
 
 ---
 
+## 💡 Output Devices
+
+| Device         | Pin | ESP32 Pin | Notes            |
+|---------------|-----|----------|------------------|
+| NeoPixel Ring | DIN | GPIO27   | Data Input       |
+|               | VCC | 3.3V     | Power            |
+|               | GND | GND      | Ground           |
+| Buzzer        | I/O | GPIO26   | Digital Output   |
+|               | VCC | 3.3V     | Power            |
+|               | GND | GND      | Ground           |
+
+---
+
+## 🎛️ Input Devices
+
+| Device     | Pin   | ESP32 Pin | Notes                |
+|------------|-------|----------|----------------------|
+| DIP Switch | PIN 1 | GPIO35   | Input (Pull-up)      |
+|            | PIN 2 | GPIO34   | Input (Pull-up)      |
+|            | PIN 3 | GPIO25   | Input (Pull-up)      |
+|            | GND   | GND      | Ground               |
+
+---
+
+## 🖥️ Display (I2C)
+
+| Device | Pin | ESP32 Pin | Notes      |
+|--------|-----|----------|------------|
+| OLED   | SDA | GPIO21   | I2C Data   |
+|        | SCL | GPIO22   | I2C Clock  |
+|        | VCC | 3.3V     | Power      |
+|        | GND | GND      | Ground     |
+
+---
 ## 💡 System Architecture
 
 - **Dual RFID Readers:** Two MFRC522 modules allow for IN/OUT or multi-zone access points. Each reader is uniquely identified by its SS (CS) and RST pins.
